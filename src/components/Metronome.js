@@ -10,11 +10,7 @@ const Metronome = () => {
     }
     
     const handleButton = () => {
-        if(button === "Pause") {
-            setButton("Lecture");
-        } else {
-            setButton("Pause");
-        }
+        button === "Pause" ? setButton("Lecture") : setButton("Pause");
     }
 
     useEffect(() => {
