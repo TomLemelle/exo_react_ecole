@@ -55,7 +55,7 @@ const Chronometer = () => {
                 : ( isPaused ? <button onClick={handlePause}>Pause</button> 
                 : <button onClick={handleResume}>Reprendre</button> )
               }
-              <button onClick={handleReset} disabled={!isActive}>Reset</button>
+              <button onClick={handleReset} disabled={!isActive}>Réinitialiser</button>
             </div>
           </div>
         </div>
