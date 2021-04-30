@@ -51,9 +51,9 @@ const Chronometer = () => {
             <p>{formatTime()}</p>
             <div>
               { !isActive && !isPaused 
-                ? <button onClick={handleStart}>Start</button>
+                ? <button onClick={handleStart}>Lecture</button>
                 : ( isPaused ? <button onClick={handlePause}>Pause</button> 
-                : <button onClick={handleResume}>Resume</button> )
+                : <button onClick={handleResume}>Reprendre</button> )
               }
               <button onClick={handleReset} disabled={!isActive}>Reset</button>
             </div>
