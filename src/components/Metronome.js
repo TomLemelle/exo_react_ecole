@@ -2,30 +2,29 @@ import React, { useEffect, useState } from 'react';
 
 const Metronome = () => {
 
-    const [value, setValue] = useState(0);
-    const [button, setButton] = useState("Lecture");
+    const [value, setValue] = useState(60);
+    const [label, setLabel] = useState("Lecture");
+    const [tick, setTick] = useState(0);
 
     const handleValue = (e) => {
         setValue(e.target.value);
     }
     
     const handleButton = () => {
-        button === "Pause" ? setButton("Lecture") : setButton("Pause");
+        label === "Pause" ? setLabel("Lecture") : setLabel("Pause");
     }
 
     useEffect(() => {
-        if(button === "Pause") {
+        if(label === "Pause") {
             const interval = setInterval(() => {
                 console.log('bpm: ', value);
-                document.getElementById('metronome').classList.toggle('metronome');
+                console.log('tick: ', tick);
+                setTick((previousTick) => previousTick + 1);
             }, 60 / value * 1000)
     
             return () => clearInterval(interval);
-        } else {
-            document.getElementById('metronome').classList.remove('metronome');
-        }
-        
-    }, [button, value])
+        } 
+    }, [label, value, tick])
     
     return (
         <div id="metronome">
@@ -34,7 +33,7 @@ const Metronome = () => {
            <div className="metronome-value">
             {value}
            </div>
-           <button className="metronome-button" id="metronome-button" onClick={handleButton}>{button}</button>
+           <button className="metronome-button" id="metronome-button" onClick={handleButton}>{label}</button>
         </div>
     );
 };
